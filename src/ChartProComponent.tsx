@@ -101,6 +101,10 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
     visible: false, indicatorName: '', paneId: '', calcParams: [] as Array<any>
   })
 
+  const setData = (data: any) => {
+    widget?.applyNewData(data, data.length > 0)
+  }
+
   props.ref({
     setTheme,
     getTheme: () => theme(),
@@ -113,7 +117,8 @@ const ChartProComponent: Component<ChartProComponentProps> = props => {
     setSymbol,
     getSymbol: () => symbol(),
     setPeriod,
-    getPeriod: () => period()
+    getPeriod: () => period(),
+    setData
   })
 
   const documentResize = () => {
